@@ -51,5 +51,16 @@ public class Patient {
 	}
 	
 	
+	public void displayDetails()
+	{
+		System.out.println("Patient Id:- " + getPatientId());
+		System.out.println("Patient Name:- " + getPatientName());
+		System.out.println("Patient Age:- " + getAge());
+		System.out.println("Patient Gender:- " + getGender());
+		System.out.println("Patient Disease:- " + getDisease());
+		
+		System.out.println();
+	}
+	
 	
 }

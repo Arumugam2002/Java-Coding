@@ -5,6 +5,19 @@ import java.util.*;
 
 
 public class HospitalManagementSystem {
+	
+	
+	private static String nextLineSafe(Scanner sc)
+	{
+		String input = sc.nextLine().trim();
+		
+		if(input.isEmpty())
+		{
+			input = sc.nextLine().trim();
+		}
+		
+		return input;
+	}
 
 	public static void main(String[] args)
 	{
@@ -40,27 +53,29 @@ public class HospitalManagementSystem {
 			System.out.println("Enter Patient Id:- ");
 			
 			int id = sc.nextInt();
+			sc.nextLine();
 			
 			System.out.println("Enter Patient Name:- ");
 			
-			sc.nextLine();
 			
-			String name = sc.nextLine();
+			
+			String name = nextLineSafe(sc);
 			
 			System.out.println("Enter Patient Age:- ");
 			
 			int age = sc.nextInt();
+			sc.nextLine();
 			
 			System.out.println("Enter Gender:- ");
 			
-			sc.nextLine();
 			
-			String gender = sc.nextLine();
+			
+			String gender = nextLineSafe(sc);
 			
 			System.out.println("Enter Disease:- ");
 			
 						
-			String disease = sc.nextLine();
+			String disease = nextLineSafe(sc);
 			
 			patients.add(new Patient(id, name, age, gender, disease));
 			
@@ -80,13 +95,7 @@ public class HospitalManagementSystem {
 				else {
 					for(Patient p : patients)
 					{
-						System.out.println("Patient Id:- " + p.getPatientId());
-						System.out.println("Patient Name:- " + p.getPatientName());
-						System.out.println("Patient Age:- " + p.getAge());
-						System.out.println("Patient Gender:- " + p.getGender());
-						System.out.println("Patient Disease:- " + p.getDisease());
-						
-						System.out.println();
+						p.displayDetails();
 						
 					}
 				}
@@ -152,22 +161,23 @@ public class HospitalManagementSystem {
 						
 						sc.nextLine();
 						
-						String updatePatientName = sc.nextLine();
+						String updatePatientName = nextLineSafe(sc);
 						
 						p.setPatientName(updatePatientName);
 						
 						System.out.println("Update Patient Age:- ");
 						
 						int updatePatientAge = sc.nextInt();
+						sc.nextLine();
 						
 						p.setAge(updatePatientAge);
 
 						
 						System.out.println("Update Patient Gender:- ");
 						
-						sc.nextLine();
 						
-						String updatePatientGender = sc.nextLine();
+						
+						String updatePatientGender = nextLineSafe(sc);
 						
 						p.setGender(updatePatientGender);
 						
@@ -175,7 +185,7 @@ public class HospitalManagementSystem {
 						
 						//sc.nextLine();
 						
-						String updatePatientDisease = sc.nextLine();
+						String updatePatientDisease = nextLineSafe(sc);
 						
 						p.setDisease(updatePatientDisease);
 						
@@ -213,7 +223,7 @@ public class HospitalManagementSystem {
 		
 		
 		
-		
+		sc.close();
 		
 	}
 	
