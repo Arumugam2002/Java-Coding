@@ -1,8 +1,11 @@
 package com.quizconsoleapp;
 
+import java.util.Scanner;
+
 public class QuestionService {
 
     Question[] questions = new Question[5];
+    String selection[] = new String[5];
 
 
     public QuestionService()
@@ -14,27 +17,61 @@ public class QuestionService {
         questions[4] = new Question(5, "Who founded Amazon", "Jeff Bezos", "Elon Musk", "Mark Zuckerburg","Steve Jobs", "Jeff Bezos");
     }
 
-    public void displayQuestions()
+    public void playQuiz()
     {
+
+        int i = 0;
 
         for(Question q : questions)
         {
+            System.out.println("Question Id:- " + q.getId());
             System.out.println("Question:- " +q.getQuestion());
             System.out.println("Option 1:- " +q.getOpt1());
             System.out.println("Option 2:- " +q.getOpt2());
             System.out.println("Option 3:- " +q.getOpt3());
             System.out.println("Option 4:- " + q.getOpt4());
-            System.out.println("Answer:- " + q.getAnswer());
+            //System.out.println("Answer:- " + q.getAnswer());
+
+            Scanner sc = new Scanner(System.in);
+
+           selection[i] = sc.nextLine();
+           i++;
+
 
             System.out.println();
             System.out.println();
         }
 
-        for(Question q : questions)
+        for(String s : selection)
         {
-            System.out.println(q.toString());
+            System.out.println(s);
         }
 
+//        for(Question q : questions)
+//        {
+//            System.out.println(q.toString());
+//        }
 
+
+    }
+
+    public void printScore() {
+
+        int score = 0;
+
+        for(int i=0; i < questions.length;i++)
+        {
+                Question question = questions[i];
+                String actualAnswer = question.getAnswer();
+
+                String userAnswer = selection[i];
+
+                if(actualAnswer.equals(userAnswer))
+                {
+                    score++;
+                }
+        }
+
+        System.out.println("Your Score is:- " + score);
     }
 }
