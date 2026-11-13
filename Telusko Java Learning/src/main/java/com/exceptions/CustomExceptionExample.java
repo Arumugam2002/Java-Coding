@@ -14,7 +14,17 @@ class ArumugamException extends Exception{
 public class CustomExceptionExample {
 
     public static void main(String[] args)
+
     {
+        try{
+            Class.forName("Ravan");
+        }
+        catch(ClassNotFoundException e)
+        {
+            System.out.println("Unable to find the class" + e);
+        }
+
+
         Scanner sc = new Scanner(System.in);
 
         int number1, number2, result = 0;
